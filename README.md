@@ -39,6 +39,7 @@ The `setup.sh` script automatically installs the following essential tools. They
 | **zoxide** | `cd` (change directory) | **Smart navigation** that learns your usage patterns for instant folder jumping. | `z dot` (jumps to `_dotfiles`) |
 | **starship** | Shell Prompt | Fast, zero-config prompt that displays **Git branch, environment, and status codes**. | *(Shows status in the console line)* |
 | **nvim** | `vi`/`vim` | A powerful, extensible modern terminal code editor. | `nvim setup.sh` |
+| **trash-cli** | `rm` (delete files) | **Critical safety alias.** Moves files/directories to the system trash instead of permanent deletion. | `rm my_file.txt` (or `rm my_folder`) |
 
 ## ⚙️ Configuration Details
 
@@ -54,6 +55,7 @@ This section outlines where the configurations for the installed tools are locat
 
 * **Alias Directory:** All custom aliases (like `dps`, `dcl`, `l`, `lt`) are stored in the modular directory: `~/_dotfiles/aliases.d/`.
 * **The Primary Loader (`.bashrc`):** The `setup.sh` script adds a block to `~/.bashrc` that automatically sources every file in `~/_dotfiles/aliases.d/` when a new session starts. This is also where **Starship** is initialized to display your prompt.
+* **Safety Aliases:** The alias file `40-safeguards.sh` implements the critical safety feature: `alias rm='trash'`. This ensures that running the single-command `rm` never results in permanent deletion, eliminating the need for the dangerous `rm -rf` command.
 
 ### Welcome Message (MOTD)
 
