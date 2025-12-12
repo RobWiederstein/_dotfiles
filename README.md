@@ -41,6 +41,21 @@ The `setup.sh` script automatically installs the following essential tools. They
 | **nvim** | `vi`/`vim` | A powerful, extensible modern terminal code editor. | `nvim setup.sh` |
 | **trash-cli** | `rm` (delete files) | **Critical safety alias.** Moves files/directories to the system trash instead of permanent deletion. | `rm my_file.txt` (or `rm my_folder`) |
 
+## 🚀 Git Automation (Module 50-git.sh)
+
+The core Git workflow (Status, Add, Commit, Push/Pull) is condensed into short, mnemonic aliases to maximize speed and efficiency.
+
+| Alias | Full Command | Description |
+| :--- | :--- | :--- |
+| **gs** | `git status -sb` | **Status:** Concise, scannable summary. |
+| **ga** | `git add` | **Add:** Stage files for commit. |
+| **gcm** | `git commit -m` | **Commit:** Snapshot changes with an inline message. |
+| **gl** | `git log --oneline --decorate --graph` | **Log:** Colorful, condensed history graph (the most useful log view). |
+| **gd** | `git diff` | **Diff:** Show unstaged changes. |
+| **gp** | `git push` | **Push:** Upload local commits to remote. |
+| **gpl** | `git pull` | **Pull:** Fetch and integrate remote changes. |
+
+
 ## ⚙️ Configuration Details
 
 This section outlines where the configurations for the installed tools are located and how they are applied.
