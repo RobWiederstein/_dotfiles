@@ -1,5 +1,4 @@
 # ~/.config/starship.toml
-# Goal: rkw (yellow) in 🌐 bilbo (yellow) in <path> (yellow) on  <branch> (status) <duration>
 
 format = "$username$hostname$directory$git_branch$git_status$cmd_duration$line_break$character"
 
@@ -16,21 +15,17 @@ format = "in 🌐 [$hostname]($style) "
 
 [directory]
 truncation_length = 3
-truncate_to_repo = true
+truncate_to_repo = false
 style = "bold yellow"
 format = "in [$path]($style) "
 
-[cmd_duration]
-min_time = 1000
-format = "[$duration]($style) "
-
 [git_branch]
-symbol = " "
+symbol = " "
 style = "bold green"
-format = "on [$symbol$branch]($style)"
+format = "on [$symbol$branch]($style) "
 
 [git_status]
-format = '([$all_status]($style))'
+format = '([$all_status]($style)) '
 style = "bold red"
 stashed = 'stash'
 ahead = '⇡${count}'
@@ -39,6 +34,10 @@ behind = '⇣${count}'
 modified = 'M'
 untracked = '?'
 deleted = 'D'
+
+[cmd_duration]
+min_time = 1000
+format = "[$duration]($style) "
 
 [character]
 success_symbol = "[❯](bold green)"
