@@ -14,13 +14,22 @@ sudo apt install -y \
   bat \
   ripgrep \
   btop \
-  eza \
   fzf \
   zoxide \
   git \
   curl \
   fd-find \
   trash-cli # <-- ADDED: The safe 'rm' replacement
+
+# --- eza/exa compatibility ---
+# Debian bookworm may not have eza in default repos. If eza isn't available,
+# install exa and provide an eza shim so aliases remain consistent.
+if apt-cache show eza >/dev/null 2>&1; then
+  sudo apt install -y eza
+else
+  sudo apt install -y exa
+  sudo ln -sf "$(command -v exa)" /usr/local/bin/eza
+fi
 
 # Install Starship (always separate)
 echo -e "\n[2/4] Installing Starship Prompt..."
