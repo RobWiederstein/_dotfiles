@@ -1,30 +1,37 @@
 # ~/.config/starship.toml
+# Goal: rkw (yellow) in 🌐 bilbo (yellow) in <path> (yellow) on  <branch> (status) <duration>
 
-# Sets the prompt format: hardcodes the user/host string since variables are blocked
-# This guarantees 'rkw@bilbo' will always display.
-format = "[rkw@bilbo]($style) $directory$git_branch$git_status$cmd_duration$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$cmd_duration$line_break$character"
 
-# Directory and Command Duration modules are correct
+[username]
+show_always = true
+style_user = "bold yellow"
+style_root = "bold red"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = false
+style = "bold yellow"
+format = "in 🌐 [$hostname]($style) "
+
 [directory]
 truncation_length = 3
 truncate_to_repo = true
-format = "in [\\[$path\\](bold yellow)]($style)"
+style = "bold yellow"
+format = "in [$path]($style) "
 
 [cmd_duration]
 min_time = 1000
 format = "[$duration]($style) "
 
-# Git status module is correct
 [git_branch]
-symbol = " " 
+symbol = " "
 style = "bold green"
 format = "on [$symbol$branch]($style)"
 
 [git_status]
-# 🎯 CORRECTED LINE: Removed escaped brackets \ and [ and ]
 format = '([$all_status]($style))'
 style = "bold red"
-# Add missing status indicators for completeness (they were in your previous version)
 stashed = 'stash'
 ahead = '⇡${count}'
 diverged = '⇕'
@@ -33,8 +40,6 @@ modified = 'M'
 untracked = '?'
 deleted = 'D'
 
-# Final character is correct
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-
