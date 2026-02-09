@@ -47,6 +47,10 @@ else
     echo "Warning: Neovim config file not found at $NVIM_SOURCE. Skipping link."
 fi
 
+# --- Starship ---
+mkdir -p "$HOME/.config"
+ln -sf "$HOME/_dotfiles/config/starship/starship.toml" "$HOME/.config/starship.toml"
+
 
 # --- 3. Update .bashrc (Non-Destructive) ---
 echo -e "\n[4/4] Updating ~/.bashrc..."
